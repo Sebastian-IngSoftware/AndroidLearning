@@ -1,4 +1,4 @@
-package com.clinet.learningasjc
+package com.learningasjc
 
 import org.junit.Test
 

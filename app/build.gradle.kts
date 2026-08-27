@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.clinet.learningasjc"
+    namespace = "com.learningasjc"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.clinet.learningasjc"
+        applicationId = "com.learningasjc"
         minSdk = 24
         targetSdk = 37
         versionCode = 1

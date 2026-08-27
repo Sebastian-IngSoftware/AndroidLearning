@@ -1,4 +1,4 @@
-package com.clinet.learningasjc
+package com.learningasjc
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -50,7 +50,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.clinet.learningasjc.ui.theme.LearningASJCTheme
+import com.learningasjc.ui.theme.LearningASJCTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

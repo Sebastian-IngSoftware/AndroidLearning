@@ -1,4 +1,4 @@
-package com.clinet.learningasjc.ui.theme
+package com.learningasjc.ui.theme
 
 import android.app.Activity
 import android.os.Build
