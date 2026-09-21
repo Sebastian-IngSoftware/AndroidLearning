@@ -1,20 +1,27 @@
 package com.learningasjc.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.MaterialTheme.shapes
 import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -28,17 +35,25 @@ fun GameScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .padding(mediumPadding)
-            .fillMaxSize(),
+            .fillMaxSize()
+            .safeDrawingPadding()
+            .statusBarsPadding(),
     ) {
         Text(
-            text = stringResource(R.string.title_app), style = typography.titleLarge
+            text = stringResource(R.string.title_app),
+            style = typography.titleLarge,
         )
         GameLayout(
-            modifier = Modifier.padding(mediumPadding)
+            modifier = Modifier
+                .padding(mediumPadding)
+                .fillMaxWidth()
         )
         Column(
             verticalArrangement = Arrangement.spacedBy(mediumPadding),
             horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .padding(mediumPadding)
+                .fillMaxWidth()
         ) {
             Button(
                 onClick = {},
@@ -72,15 +87,21 @@ fun GameLayout(modifier: Modifier = Modifier) {
         Column(
             verticalArrangement = Arrangement.spacedBy(mediumPadding),
             horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.padding(mediumPadding),
         ) {
             Text(
                 text = stringResource(R.string.word_count, 0),
-                modifier = Modifier.align(Alignment.End),
+                modifier = Modifier
+                    .align(Alignment.End)
+                    .clip(shape = shapes.medium)
+                    .background(colorScheme.surfaceTint)
+                    .padding(horizontal = 10.dp, vertical = 4.dp),
                 style = typography.titleMedium,
+                color = colorScheme.onPrimary
             )
             Text(
                 text = "Apple",
-                style = typography.titleLarge ,
+                style = typography.titleLarge,
             )
             Text(
                 text = stringResource(R.string.instructions, "this is a hint"),
@@ -90,7 +111,18 @@ fun GameLayout(modifier: Modifier = Modifier) {
                 value = "",
                 onValueChange = {},
                 singleLine = true,
-            )
+                shape = shapes.large,
+                modifier = Modifier.fillMaxWidth(),
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = colorScheme.surface,
+                    unfocusedContainerColor = colorScheme.surface,
+                    disabledContainerColor = colorScheme.surface,
+                ),
+                label = {
+                    Text(
+                        text = stringResource(R.string.enter_your_word)
+                    )
+                })
         }
     }
 }
