@@ -72,7 +72,7 @@ fun GameScreen() {
                 )
             }
         }
-        GameStatus()
+        GameStatus(modifier = Modifier.padding(20.dp))
     }
 }
 
@@ -101,7 +101,7 @@ fun GameLayout(modifier: Modifier = Modifier) {
             )
             Text(
                 text = "Apple",
-                style = typography.titleLarge,
+                style = typography.headlineLarge,
             )
             Text(
                 text = stringResource(R.string.instructions, "this is a hint"),
@@ -128,10 +128,14 @@ fun GameLayout(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun GameStatus() {
-    Card {
+fun GameStatus(modifier: Modifier) {
+    Card(
+        modifier = modifier,
+    ) {
         Text(
-            text = stringResource(R.string.score, 0)
+            text = stringResource(R.string.score, 0),
+            style = typography.headlineMedium,
+            modifier = Modifier.padding(8.dp)
         )
     }
 }
